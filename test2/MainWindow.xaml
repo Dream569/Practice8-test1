@@ -1,0 +1,65 @@
+﻿<Window x:Class="test2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="О программе" Click="Info_Click"/>
+                <Separator></Separator>
+            </MenuItem>
+            <MenuItem Header="Выход" Click="Exit_Click"/>
+        </Menu>
+        <GroupBox Header="Отцы и дети" Margin="0,23,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="RemoveButton" Grid.Column="0" Content=" - " VerticalAlignment="Center" Click="OnRemoveButtonClicked" IsEnabled="False"/>
+                    <Button x:Name="CloneButton" Grid.Column="1" Content="Клонировать" VerticalAlignment="Center" Click="OnCloneButtonClicked" IsEnabled="False"/>
+                    <Button Grid.Column="2" Content="Сортировать" Click="OnSortButtonClicked" VerticalAlignment="Center"/>
+                    <Button Grid.Column="3" Content=" + " VerticalAlignment="Center" Click="OnAddButtonClicked"/>
+                </Grid>
+                <ListBox Grid.Row="1" x:Name="HumenBox" SelectionChanged="OnOneHumanSelected"/>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Фамилия"/>
+                    <TextBox Grid.Column="1" x:Name="SurnameBox" VerticalAlignment="Center"/>
+                    <Label Grid.Row="1" Content="Имя"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="NameBox" VerticalAlignment="Center"/>
+                    <Label Grid.Row="2" Content="Возраст"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="AgeBox" VerticalAlignment="Center"/>
+                    <Label Grid.Row="3" Content="Племя"/>
+                    <ComboBox x:Name="TribeBox" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
+                        <ComboBoxItem Content="Отец" IsSelected="True"/>
+                        <ComboBoxItem Content="Студент"/>
+                    </ComboBox>
+                    <Button Grid.Row="4" Grid.ColumnSpan="2" x:Name="ApplyButton" Content="Применить" VerticalAlignment="Center" Click="OnApplyButtonClicked" />
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
